@@ -13,11 +13,11 @@ import duploStatic from "@duplojs/static";
 const duplo = Duplo({port: 1506, host: "0.0.0.0"});
 
 duplo.use(
-	duploStatic, 
-	{
-		staticFolder: "./public", 
-		prefix: "public",
-	}
+    duploStatic, 
+    {
+        staticFolder: "./public", 
+        prefix: "public",
+    }
 );
 
 duplo.launch();
