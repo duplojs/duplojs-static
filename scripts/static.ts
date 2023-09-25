@@ -25,20 +25,15 @@ function duploStatic(
 
 	instance
 	.declareRoute("GET", prefix + "*")
-	.process(
-		instance
-		.createProcess("static")
-		.custom(async({}, request, response) => {
-			const path = `${staticFolder}/${request.url.split("?")[0].replace(prefix, "")}`;
-			if(
-				!/\.\.\/|\/\.\./.test(path) && 
-				existsSync(path) && 
-				!(await lstat(path)).isDirectory()
-			) response.code(200).sendFile(path);
-			else await notfoundHandler(request, response);
-		})
-		.build()
-	)
+	.custom(async({}, request, response) => {
+		const path = `${staticFolder}/${request.url.split("?")[0].replace(prefix, "")}`;
+		if(
+			!/\.\.\/|\/\.\./.test(path) && 
+			existsSync(path) && 
+			!(await lstat(path)).isDirectory()
+		) response.code(200).sendFile(path);
+		else await notfoundHandler(request, response);
+	})
 	.handler(() => {});
 }
 
