@@ -1,24 +1,15 @@
-# duplojs-static
-
-## Instalation
-```
-npm i @duplojs/static
-```
-
-## Utilisation
-```ts
 import Duplo from "@duplojs/duplojs";
-import duploStatic from "@duplojs/static";
+import duploStatic from "../scripts/static";
 
 const duplo = Duplo({port: 1506, host: "0.0.0.0"});
 
 duplo.use(
 	duploStatic, 
 	{
-		staticFolder: "./public", 
+		staticFolder: "./test/public", 
 		prefix: "public",
+		notfoundHandler: (request, response) => response.code(404).send("NOT FOUND")
 	}
 );
 
 duplo.launch();
-```

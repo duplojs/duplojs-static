@@ -3,14 +3,14 @@ import esbuild from "rollup-plugin-esbuild";
 
 export default defineConfig([
 	{
-		input: "scripts/",
+		input: "scripts/static.ts",
 		output: [
 			{
-				file: "dist/.mjs",
+				file: "dist/static.mjs",
 				format: "esm"
 			},
 			{
-				file: "dist/.cjs",
+				file: "dist/static.cjs",
 				format: "cjs",
 			}
 		],
