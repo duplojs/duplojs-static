@@ -6,11 +6,11 @@
   "repository": "https://github.com/duplojs/duplojs-static",
   "license": "ISC",
   "keywords": [],
-  "types": "./types/.ts",
+  "types": "./types/static.ts",
   "exports": {
 	  "default": {
-		"import": "./dist/.mjs",
-		"require": "./dist/.cjs"
+		"import": "./dist/static.mjs",
+		"require": "./dist/static.cjs"
 	  }
 	},
   "files": [
@@ -21,7 +21,7 @@
 	  "access": "public"
 	},
   "scripts": {
-	  "dev": "nodemon --exec 'ts-node test/.ts'",
+	  "dev": "nodemon --exec 'ts-node test/index.ts'",
 	  "build": "rollup --config && npx tsc"
 	},
 	"dependencies": {
