@@ -1,15 +1,8 @@
-import Duplo from "@duplojs/duplojs";
-import duploStatic from "../scripts/static";
+import {workersTesting} from "@duplojs/worker-testing";
 
-const duplo = Duplo({port: 1506, host: "0.0.0.0"});
-
-duplo.use(
-	duploStatic, 
-	{
-		staticFolder: "./test/public", 
-		prefix: "public",
-		notfoundHandler: (request, response) => response.code(404).send("NOT FOUND")
-	}
+workersTesting(
+	path => import(path),
+	__dirname + "/withoutOptions",
+	__dirname + "/withOptions",
 );
 
-duplo.launch();
