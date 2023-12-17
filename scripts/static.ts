@@ -24,7 +24,7 @@ function duploStatic(
 		prefix = "",
 		notfoundHandler = (request, response) => response.code(404).info("NOTFOUND").send(`${request.method}:${request.path} not found`),
 		abstractRoute
-	}: DuploStaticOptions
+	}: DuploStaticOptions = {}
 ){
 	instance.plugins["@duplojs/static"] = {version: packageJson.version};
 
