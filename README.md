@@ -1,4 +1,5 @@
 # duplojs-static
+[![NPM version](https://img.shields.io/npm/v/@duplojs/static)](https://www.npmjs.com/package/@duplojs/static)
 
 ## Instalation
 ```
