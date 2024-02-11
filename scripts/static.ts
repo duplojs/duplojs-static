@@ -17,6 +17,8 @@ interface DuploStaticOptions {
 	abstractRoute?: AbstractRouteInstance
 }
 
+export class StaticRouteDescription{}
+
 function duploStatic(
 	instance: DuploInstance<DuploConfig>, 
 	{
@@ -35,9 +37,9 @@ function duploStatic(
 	if(!existsSync(staticFolder))mkdirSync(staticFolder, {recursive: true});
 
 	(abstractRoute || instance)
-	.declareRoute("GET", prefix + "*")
+	.declareRoute("GET", prefix + "*", StaticRouteDescription)
 	.cut(async({}, response, request) => {
-		const path = `${staticFolder}/${request.url.split("?")[0].replace(prefix, "")}`;
+		const path = `${staticFolder}/${request.path.replace(prefix, "")}`;
 		if(
 			!/\.\.\/|\/\.\./.test(path) && 
 			existsSync(path) && 

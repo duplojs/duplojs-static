@@ -11,7 +11,7 @@ npm i @duplojs/static
 import Duplo from "@duplojs/duplojs";
 import duploStatic from "@duplojs/static";
 
-const duplo = Duplo({port: 1506, host: "0.0.0.0"});
+const duplo = Duplo({port: 1506, host: "localhost", environment: "DEV"});
 
 duplo.use(
     duploStatic, 
